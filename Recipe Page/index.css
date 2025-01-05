@@ -1,0 +1,251 @@
+/* Global Settings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navigation Bar */
+.nav-flex-row {
+    background-color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    border-radius: 20px;
+    top: 0;
+    z-index: 10;
+    margin-top: 30px;
+}
+
+.nav-flex-row li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+.nav-flex-row li a {
+    color: #f8f8f8;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 8px 12px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-flex-row li a:hover {
+    background-color: #f8f8f8;
+    color: #333;
+    border-radius: 5px;
+}
+
+/* Intro Section */
+.section-intro {
+    background-image: url('img/BG1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+}
+
+.section-intro h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.item-container a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #333;
+    background-color: #f8f8f8;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.item-container a:hover {
+    background-color: #333;
+    color: #f8f8f8;
+}
+
+/* Menu Images Section */
+.item-image {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.item-image section {
+    width: 150px;
+    text-align: center;
+}
+
+.item-image img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.item-image img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.item-image h2 {
+    color: #8efe10;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+/* About Section */
+.about-section {
+    background-color: #f8f8f8;
+    padding: 60px 20px;
+    text-align: center;
+    color: #333;
+}
+
+.about-section h3 {
+    font-size: 2.5rem;
+    color: #c31111;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Carousel */
+.carousel-inner img {
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Booking Section */
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 60px 20px;
+    justify-content: center;
+}
+
+.flex-column-form, .opening-time, .contact-adress {
+    flex: 1;
+    max-width: 300px;
+    background-color: #333;
+    color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.flex-column-form h3, .opening-time h3, .contact-adress h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.flex-column-form p, .opening-time p, .contact-adress p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #c31111;
+    border: none;
+    padding: 10px 20px;
+    color: #f8f8f8;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #a10e0e;
+}
+
+/* Footer */
+footer {
+    color: #333;
+    background-color: #f8f8f8;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.footer-section {
+    max-width: 250px;
+}
+
+.footer-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.footer-section p, .footer-section ul, .footer-section a {
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+    line-height: 1.6;
+}
+
+.footer-section a:hover {
+    color: #c31111;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #b3b3b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-intro h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-intro h1 {
+        font-size: 2rem;
+    }
+
+    .nav-flex-row li a {
+        font-size: 1rem;
+    }
+
+    .item-image section {
+        width: 100px;
+    }
+
+    .about-section h3 {
+        font-size: 2rem;
+    }
+}

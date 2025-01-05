@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Booking & Dish Search</title>
+    <style>
+        #selected-dishes {
+            margin-top: 20px;
+        }
+
+        #selected-dishes h2 {
+            margin-bottom: 10px;
+        }
+
+        #cart-items {
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Table Booking & Dish Search</h1>
+    </header>
+
+ 
+    <section id="dish-search">
+        <h2>Search for Dishes</h2>
+        <input type="text" id="search-input" placeholder="Search dishes...">
+        <button onclick="searchDishes()">Search</button>
+
+        <div id="search-results">
+            <!-- Results will appear here dynamically -->
+        </div>
+    </section>
+
+  
+
+    <!-- Table Booking Section -->
+    <section id="table-booking">
+        <h2>Book a Table</h2>
+        <form id="booking-form">
+            <label for="table-number">Select Table Number:</label>
+            <select id="table-number">
+                <option value="1">Table 1</option>
+                <option value="2">Table 2</option>
+                <!-- Add more table options -->
+            </select>
+
+            <label for="cabin">Select Cabin Area:</label>
+            <select id="cabin">
+                <option value="A">Cabin A</option>
+                <option value="B">Cabin B</option>
+                <!-- Add more cabin options -->
+            </select>
+
+            <section id="selected-dishes">
+                <h2>Selected Dishes</h2>
+                <div id="cart-items">
+                    
+                </div>
+            </section>
+
+            <button type="button" onclick="bookTable()">Book Now</button>
+        </form>
+    </section>
+
+    <a href="cart.html">Go to Cart</a>
+
+
+
+
+
+
+    <script>
+        const dishes = [
+            { name: "Dish 1", description: "Delicious starter", img: "dish1.jpg" },
+            { name: "Dish 2", description: "Tasty main course", img: "dish2.jpg" },
+            { name: "Dish 3", description: "Sweet dessert", img: "dish3.jpg" },
+            // Add more dishes as needed
+        ];
+
+        let selectedDishes = JSON.parse(localStorage.getItem('selectedDishes')) || [];
+
+        // Function to display cart items
+        function displayCartItems() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            cartItemsDiv.innerHTML = ''; // Clear previous items
+
+            selectedDishes.forEach(dish => {
+                const itemElement = document.createElement('div');
+                itemElement.innerHTML = `
+            <h3>${dish.name}</h3>
+            <p>${dish.description}</p>
+        `;
+                cartItemsDiv.appendChild(itemElement);
+            });
+        }
+
+        // Search function
+        function searchDishes() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const resultsDiv = document.getElementById('search-results');
+            resultsDiv.innerHTML = ''; 
+
+            const filteredDishes = dishes.filter(dish =>
+                dish.name.toLowerCase().includes(searchTerm)
+            );
+
+            if (filteredDishes.length > 0) {
+                filteredDishes.forEach(dish => {
+                    const dishElement = document.createElement('div');
+                    dishElement.classList.add('dish');
+                    dishElement.innerHTML = `
+                <img src="${dish.img}" alt="${dish.name}">
+                <h2>${dish.name}</h2>
+                <p>${dish.description}</p>
+                <button onclick="addToCart('${dish.name}')">Add to Cart</button>
+            `;
+                    resultsDiv.appendChild(dishElement);
+                });
+            } else {
+                resultsDiv.innerHTML = `<p>No dishes found.</p>`;
+            }
+        }
+
+        // Add dish to cart
+        function addToCart(dishName) {
+            const dish = dishes.find(d => d.name === dishName);
+            if (dish) {
+                selectedDishes.push(dish);
+                localStorage.setItem('selectedDishes', JSON.stringify(selectedDishes)); // Save to localStorage
+                displayCartItems();
+                alert(`${dish.name} added to cart.`);
+            }
+        }
+
+        // Book the table
+        function bookTable() {
+            const tableNumber = document.getElementById('table-number').value;
+            const cabin = document.getElementById('cabin').value;
+
+            if (selectedDishes.length === 0) {
+                alert("Please select at least one dish to book.");
+            } else {
+                alert(`Table ${tableNumber} in Cabin ${cabin} booked successfully with the following dishes:\n${selectedDishes.map(d => d.name).join(", ")}`);
+                // Clear selected dishes after booking
+                selectedDishes = [];
+                localStorage.removeItem('selectedDishes'); // Clear from localStorage
+                displayCartItems(); // Update cart display
+            }
+        }
+
+        // Initial display of cart items when the page loads
+        displayCartItems();
+
+    </script>
+</body>
+
+</html>

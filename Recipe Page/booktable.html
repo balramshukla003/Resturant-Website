@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Table Booking</title>
+  <link rel="stylesheet" href="booktable.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html">Home</a>
+      <h1>Reserve Your Table</h1>
+      <p>Experience fine dining at our exclusive restaurant.</p>
+      <div class="search-bar">
+        <input id="search-input" type="search" placeholder="Enter your Dish">
+        <img src="img/search.jpg" alt="Search Icon" onclick="searchDishes()">
+      </div>
+  </header>
+  <div id="search-results">
+    <div>
+      <img src="img/kachori.jpeg" alt="kachori">
+      <p style="color: black;">Kachori - ₹30<br>
+        <button onclick="addIteam('kachori', 30)">Add to cart</button>
+      </p>
+    </div>
+
+    <div>
+      <img src="img/pizza.jpeg" alt="pizza">
+      <p style="color: black;">Pizza - ₹85<br>
+        <button onclick="addIteam('pizza', 85)">Add to cart</button>
+      </p>
+    </div>
+
+    <div>
+      <img src="img/thali.jpeg" alt="thali">
+      <p style="color: black;">Thali - ₹95<br>
+        <button onclick="addIteam('vegThali', 95)">Add to cart</button>
+      </p>
+    </div>
+
+    <div>
+      <img src="img/noodle.jpeg" alt="noodle">
+      <p style="color: black;">Noodle - ₹80<br>
+        <button onclick="addIteam('noodle', 80)">Add to cart</button>
+      </p>
+    </div>
+
+    <div>
+      <img src="img/chChocolate Lava Cake.jpg" alt="chocolate cake">
+      <p style="color: black;">Choco Cake - ₹90<br>
+        <button onclick="addIteam('chocolateCake', 90)">Add to cart</button>
+      </p>
+    </div>
+
+    <div>
+      <img src="img/Ice Cream Sundae.jpg" alt="ice cream">
+      <p style="color: black;">Ice Cream - ₹60<br>
+        <button onclick="addIteam('icecream', 60)">Add to cart</button>
+      </p>
+    </div>
+
+    <div>
+      <img src="img/Mojito.jpg" alt="mojito">
+      <p style="color: black;">Mojito - ₹70<br>
+        <button onclick="addIteam('mojito', 70)">Add to cart</button>
+      </p>
+    </div>
+
+  </div>
+
+  <h1 class="headingBook">Book your table with Dishes</h1>
+
+  <main>
+    <div class="mainDIV">
+      <h2>Book Table</h2>
+      <form class="details" id="booking-form">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br>
+        
+        <label for="table-number">Table:</label>
+        <select id="table-number" required>
+          <option value="">Select a table</option>
+          <option value="1">Table 1</option>
+          <option value="2">Table 2</option>
+          <option value="3">Table 3</option>
+          <option value="4">Table 4</option>
+        </select><br>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br>
+      </form>
+    </div>
+  
+    <div class="mainDIV">
+      <h2>Selected Item</h2>
+      <div id="iteams-box" class="details">
+      </div>
+      <button onclick="addToCart()">Add to Cart</button>
+    </div>
+  </main>
+  
+
+
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>We are dedicated to bringing you the best recipes and dining experiences. Our mission is to inspire culinary
+          creativity.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="menu.html">Recipes</a></li>
+          <li><a href="booktable.html">Booking</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+        <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <ul class="social-media">
+          <li><a href="#" target="_blank">Facebook</a></li>
+          <li><a href="#" target="_blank">Twitter</a></li>
+          <li><a href="#" target="_blank">Instagram</a></li>
+          <li><a href="#" target="_blank">Pinterest</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Recipe Website. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+
+
+  <script src="booktable.js"></script>
+</body>
+
+</html>

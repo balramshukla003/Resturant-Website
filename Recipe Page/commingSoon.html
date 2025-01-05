@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url(img/bg2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        main{
+            width: 40%;
+            height: 50%;
+            background-color: white;
+            padding: 30px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px;
+            border: 15px solid green;
+        }
+        main h1{
+            font-size: 4rem;
+            color: red;
+            padding: 10px;
+        }
+        main p{
+            font-size: 2.5rem;
+            color: green;
+        }
+        main button{
+            padding: 5px 10px;
+            width: 120px;
+            margin-top: 30px;
+            font-size: larger;
+            border-radius: 10px;
+        }
+        main button:hover{
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Comming Soon.....!</h1>
+        <p>Work in progress.....!</p>
+        <button onclick="Back()">Back</button>
+    </main>
+</body>
+<script>
+    function Back(){
+        location.href="index.html";
+    }
+</script>
+</html>
